@@ -13,11 +13,15 @@ public class CalculoImpostoRenda {
 	 * 
 	 * @param valor
 	 */
-	public static void calculaImposto(double valor) {
+	public static double calculaImposto(double valor) {
 	       //Declaração de Variáveis
 	       double imposto;
 	       double impostotot;
 	       String porcento;
+
+		   if(valor < 0) {
+			   throw new RuntimeException("Valor inválido!");
+		   }
 
 	        if (valor >= 1201 && valor <= 5000) {
 	                 imposto = 1.1;
@@ -27,15 +31,22 @@ public class CalculoImpostoRenda {
 	                 imposto = 1.15;
 	                 porcento = "15%";
 	                 impostotot = 0.15;
-	       } else{
+	       } else if(valor < 1201) {
+				imposto = 1;
+				porcento = "0%";
+				impostotot = 0;
+			} else{
 	                imposto = 1.2;
 	                porcento = "20%";
 	                impostotot = 0.2;
 	       }
 	     
 	       //Saída de dados
-	       System.out.println("Valor em Dinheiro: R$" + (valor*impostotot));
+			System.out.println("Valor em Dinheiro: R$" + (valor*impostotot));
+			return valor*impostotot;
 	    }
+
+
 	
 	
 	public static void main(String[] args) {

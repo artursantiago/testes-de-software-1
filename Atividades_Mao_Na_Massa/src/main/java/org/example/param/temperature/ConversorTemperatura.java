@@ -10,7 +10,7 @@ public class ConversorTemperatura{
        else return converteToCelsius(temp);  
     }  
   
-    private Temperatura converteToFahrenheit(Temperatura celsius) throws TempException{  
+    private Temperatura converteToFahrenheit(Temperatura celsius) throws TempException{
        Fahrenheit f = new Fahrenheit();  
        double cvalue = celsius.getValue();   
        double fvalue = 1.8*cvalue+f.getFREEZE(); // formula 1  
@@ -21,7 +21,7 @@ public class ConversorTemperatura{
     private Temperatura converteToCelsius(Temperatura fahrenheit) throws TempException{  
        Celsius c = new Celsius();  
        double fvalue = fahrenheit.getValue();   
-       double cvalue = (5/9)*fvalue-5*fahrenheit.getFREEZE();// formula 2 ?!  
+       double cvalue = (5d/9d)*(fvalue-32)*fahrenheit.getFREEZE();// formula 2 ?!
        c.setValue(cvalue);  
        return c;  
     }  
